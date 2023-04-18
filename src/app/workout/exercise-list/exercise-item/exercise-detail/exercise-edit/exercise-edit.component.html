@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="goBack()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="image-path">Image URL</label>
+                        <input type="text" id="image-path" class="form-control"
+                        formControlName="url" #imagepath>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                  <img class="img-responsive" [src]="imagepath.value">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                      type="text"
+                      id="description"
+                      class="form-control"
+                      formControlName="description"
+                      rows="6"></textarea>
+                  </div>
+                </div>
+              </div>
+
+
+        </form>
+    </div>
+</div>
