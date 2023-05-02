@@ -11,20 +11,37 @@ export class DataStorageService {
         private authService: AuthService) {}
 
     storeExercises() {
+        // const exercises = this.exerciseService.getExercises();
+        // this.http.put('https://ng-complete-guide-69f20-default-rtdb.europe-west1.firebasedatabase.app/exercises.json',
+        //  exercises).subscribe(response => {
+        //     console.log(response)
+        // })
+
         const exercises = this.exerciseService.getExercises();
-        this.http.put('https://ng-complete-guide-69f20-default-rtdb.europe-west1.firebasedatabase.app/exercises.json',
-         exercises).subscribe(response => {
-            console.log(response)
-        })
+         this.http.post('http://localhost:8080/fitness', exercises)
+         .subscribe(response => {
+         console.log(response)
+            });
+
+
     }
 
     fetchExercises(){
+        // this.authService.user.pipe(take(1), exhaustMap(user => {
+        //     return  this.http.get<Exercise[]>('https://ng-complete-guide-69f20-default-rtdb.europe-west1.firebasedatabase.app/exercises.json'
+        //     );
+        // })).subscribe( exercises => {
+        //     this.exerciseService.setExercises(exercises)
+        // })
+
         this.authService.user.pipe(take(1), exhaustMap(user => {
-            return  this.http.get<Exercise[]>('https://ng-complete-guide-69f20-default-rtdb.europe-west1.firebasedatabase.app/exercises.json'
+            return  this.http.get<Exercise[]>('http://localhost:8080/fitness'
             );
         })).subscribe( exercises => {
             this.exerciseService.setExercises(exercises)
         })
+
+
     }
 
 

@@ -11,6 +11,7 @@ import { AuthComponentComponent } from "./auth/auth.component/auth.component.com
 import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes: Routes = [
+    { path: 'auth', component: AuthComponentComponent},
     { path: 'user', component: UserComponent,  },
     { path: 'exercise', component: ExerciseComponent },
     {path: 'workout', component: WorkoutComponent, canActivate:[AuthGuard], children: [
@@ -19,8 +20,7 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: ExerciseEditComponent}
     ]},
     {path: 'progress', component: ProgressComponent},
-    {path: 'nutrition', component: NutritionComponent},
-    { path: 'auth', component: AuthComponentComponent}
+    {path: 'nutrition', component: NutritionComponent}
   ];
 
 @NgModule({

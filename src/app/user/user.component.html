@@ -1,1 +1,7 @@
 <p>user works!</p>
+<button class="btn btn-primary" (click)="onAnimate()">animate</button>
+<button class="btn btn-primary" (click)="onShrink()">shrink</button>
+<hr>
+<div style="width: 100px; height: 100px" [@divState]="state"></div>
+<br>
+<div style="width: 100px; height: 100px" [@wildState]="wildstate"></div>

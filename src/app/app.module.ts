@@ -24,6 +24,7 @@ import { DataStorageService } from './services/data-storage.service';
 import { AuthComponentComponent } from './auth/auth.component/auth.component.component';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AlertComponent } from './alert/alert.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AlertComponent } from './alert/alert.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [ExerciseService, NutritionService, 
     { provide: HTTP_INTERCEPTORS, 
