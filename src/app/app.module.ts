@@ -24,7 +24,8 @@ import { DataStorageService } from './services/data-storage.service';
 import { AuthComponentComponent } from './auth/auth.component/auth.component.component';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AlertComponent } from './alert/alert.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MuscleProgressComponent } from './progress/muscle-progress/muscle-progress.component'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     NutritionListComponent,
     NutritionEditComponent,
     AuthComponentComponent,
-    AlertComponent
+    AlertComponent,
+    MuscleProgressComponent
   ],
   imports: [
     BrowserModule,
