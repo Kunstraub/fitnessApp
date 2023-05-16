@@ -18,6 +18,16 @@ interface Human {
 export class ProgressComponent implements OnInit {
 
   stefan: Human;
+  imageUrl: string = 'assets/Jennifer Lawrence very HOT 7.jpg';
+  spiel: string = 'hier ein spiel eingeben'
+  onClick(){
+    console.log(this.spiel)
+  }
+  isHighlighted: boolean = true;
+  changeHightlight(){
+    this.isHighlighted = !this.isHighlighted
+  }
+  
   
  
   exercises: WeightExercise[] = [ new WeightExercise("Bankdrücken",120,10, new Date(Date.now())),

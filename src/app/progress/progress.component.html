@@ -1,2 +1,16 @@
 <button id="myButt" (click)="main()" class="btn btn-success"></button>
   
+<p>{{stefan.addYearToAge()}}</p>
+<hr>
+<div>
+    <img [src]="imageUrl">
+</div>
+<hr>
+<input [(ngModel)]="spiel">
+<button (click)="onClick()">spielbutton</button>
+<ul>
+    <li *ngFor="let exercise of exercises; let i = index">index: {{i}} und Übungsname: {{exercise.name}}</li>
+</ul>
+<hr>
+<div [ngClass]="{ 'highlight': isHighlighted }">Inhalt</div>
+<button (click)="changeHightlight()">highlightbutton</button>
