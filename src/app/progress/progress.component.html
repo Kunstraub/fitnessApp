@@ -7,10 +7,18 @@
 </div>
 <hr>
 <input [(ngModel)]="spiel">
-<button (click)="onClick()">spielbutton</button>
+<p>{{spiel}}</p>
 <ul>
     <li *ngFor="let exercise of exercises; let i = index">index: {{i}} und Übungsname: {{exercise.name}}</li>
 </ul>
 <hr>
-<div [ngClass]="{ 'highlight': isHighlighted }">Inhalt</div>
-<button (click)="changeHightlight()">highlightbutton</button>
+<div [ngClass]="{ 'highlight': isHighlighted }">
+    <p>Inhalt</p>
+</div>
+<button (click)="sendToFirebase()" class="btn btn-primary">sendToFirebase</button>
+<button (click)="getTheReps()" class="btn btn-primary">buildTheReputationList</button>
+<button (click)="deleteWeightExercisesInFirebase()" class="btn btn-secondary">deleteToFirebase</button>
+<hr>
+<ul>
+    <li *ngFor="let rep of reps">Alle Reps unter 25: {{rep}}</li>
+</ul>

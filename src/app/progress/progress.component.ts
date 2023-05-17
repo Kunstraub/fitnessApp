@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightExercise } from '../models/weightExercise.model';
+import { ProgressiveStoreService } from '../services/progressive-storeExercise.service';
 import { WeightExerciseService } from '../services/weight-exercise.service';
 import { NgForm } from '@angular/forms';
 
@@ -29,12 +30,12 @@ export class ProgressComponent implements OnInit {
   }
   
   
- 
+ reps: number[];
   exercises: WeightExercise[] = [ new WeightExercise("Bankdrücken",120,10, new Date(Date.now())),
 new WeightExercise("Kniebeugen",120,8, new Date(Date.now())),new WeightExercise("Klimmzüge",110,10, new Date(Date.now())),
 new WeightExercise("Dips",110,10, new Date(Date.now())),];
 
-  constructor(private weightService: WeightExerciseService) { }
+  constructor(private progressiveService: ProgressiveStoreService) { }
 
   ngOnInit(): void {
     this.stefan = {
@@ -66,7 +67,7 @@ const lastDragon = this.exercises.pop()
 const firstNum = numbers.shift()
 this.exercises.unshift(new WeightExercise('DragonAbs',100,10,new Date(Date.now())))
 const joinedNumsComaSeperated = numbers.join(',')
-const indexFrom5 = numbers.indexOf(5)
+const indexFrom5 = numbers.indexOf(5)//here it is the value not the index as parameter
 const allNumsLowerTen = numbers.every(num => num < 10)
 console.log(this.exercises); // Output: [1, 4, 9, 16, 25]
 this.exercises.sort((a,b) => b.weightKG - a.weightKG)
@@ -77,6 +78,19 @@ setTimeout(() => {
 
     // console.log(this.updatedArray)
     // console.log(this.demoArray)
+  }
+  sendToFirebase(){
+    this.progressiveService.putExercisesToFirebase();
+  }
+
+  async getTheReps(): Promise<void>{
+     await this.progressiveService.getExercisesFromFirebaseAndWorkWithIt();
+      this.reps = [...this.progressiveService.reputations]
+    
+  }
+
+  deleteWeightExercisesInFirebase(){
+    this.progressiveService.deleteExercisesInFirebase();
   }
 
 
