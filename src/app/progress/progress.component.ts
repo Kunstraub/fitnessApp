@@ -84,7 +84,10 @@ setTimeout(() => {
   }
 
   async getTheReps(): Promise<void>{
-     await this.progressiveService.getExercisesFromFirebaseAndWorkWithIt();
+     await this.progressiveService.getExercisesFromFirebaseAndWorkWithIt()
+     .catch((error) => {
+      console.log('Folgender Fehler ist aufgetreten: ', error.message)
+     });
       this.reps = [...this.progressiveService.reputations]
     
   }

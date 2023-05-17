@@ -44,7 +44,7 @@ export class ProgressiveStoreService{
     // }
     async getExercisesFromFirebaseAndWorkWithIt(): Promise<void> {
         const response = await this.http.get<WeightExercise[]>('https://ng-complete-guide-69f20-default-rtdb.europe-west1.firebasedatabase.app/weightExercises.json').toPromise();
-        const updatedResponse = response.filter(weightExercise => weightExercise.reps >= 25).map(exercise => exercise.reps);
+        const updatedResponse = response.filter(weightExercise => weightExercise.reps < 25).map(exercise => exercise.reps);
         this.reputations = [...updatedResponse];
       }
       
