@@ -1,6 +1,8 @@
 # FirstApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+It is more an Exercise for working with Angular and Typescript. Not everything makes sense but it helps me to understand
+the tools. So dont judge me here, ok?? Ohh ok, i see you have sooo much better ideas for exercising. So calm down, ok maybe i should :-)
 
 ## Development server
 
